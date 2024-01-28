@@ -35,15 +35,15 @@ Lets make sure that works as well
 
 ## We gonna create a cluster with kops
 
- ` kops create cluster --name=kubevpro.m-kaiser.xyz --state=s3://kobs-state-mkaiser --zones=us-east-1a,us-east-1b --node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=kubevpro.m-kaiser.xyz --node-volume-size=8 --master-volume-size=8`
+ ` kops create cluster --name=kube.domain.xyz --state=s3://kobs-state-bucket --zones=us-east-1a,us-east-1b --node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=kube.domain.xyz --node-volume-size=8 --master-volume-size=8`
  
 And lets update it
 
-  `kops update cluster --name kubevpro.m-kaiser.xyz --state=s3://kobs-state-mkaiser --yes --admin`
+  `kops update cluster --name kube.domain.xyz --state=s3://kobs-state-bucket --yes --admin`
 
 And also validate it
 
-  `kops validate cluster --name kubevpro.m-kaiser.xyz --state=s3://kobs-state-mkaiser`
+  `kops validate cluster --name kube.domain.xyz --state=s3://kobs-state-bucket`
 
 ## Last thing we need to get is the aws ebs csi plugin
 
